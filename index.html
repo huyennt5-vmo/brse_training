@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tiếng Anh Cho Bé</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#EC4899'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f9fafb;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .custom-checkbox {
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #4F46E5;
+            border-color: #4F46E5;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .custom-checkbox .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4F46E5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        .range-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: #e5e7eb;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #4F46E5;
+            cursor: pointer;
+        }
+        .range-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #4F46E5;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-['Pacifico'] text-primary">KidEnglish</a>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-700 hover:text-primary font-medium text-sm flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center mr-1">
+                        <i class="ri-home-line ri-lg"></i>
+                    </div>
+                    Trang chủ
+                </a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium text-sm flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center mr-1">
+                        <i class="ri-book-open-line ri-lg"></i>
+                    </div>
+                    Bài học
+                </a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium text-sm flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center mr-1">
+                        <i class="ri-game-line ri-lg"></i>
+                    </div>
+                    Trò chơi
+                </a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium text-sm flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center mr-1">
+                        <i class="ri-trophy-line ri-lg"></i>
+                    </div>
+                    Thành tích
+                </a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium text-sm flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center mr-1">
+                        <i class="ri-question-line ri-lg"></i>
+                    </div>
+                    Trợ giúp
+                </a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="bg-white text-primary border border-primary px-4 py-2 rounded-button text-sm font-medium hover:bg-primary hover:text-white transition duration-300 whitespace-nowrap">Đăng nhập</button>
+                <button class="bg-primary text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-primary/90 transition duration-300 whitespace-nowrap">Đăng ký</button>
+                
+                <div class="md:hidden w-8 h-8 flex items-center justify-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="relative rounded-lg overflow-hidden mb-12" style="background-image: url('https://readdy.ai/api/search-image?query=colorful%20educational%20background%20with%20cartoon%20characters%2C%20books%2C%20letters%2C%20and%20numbers%2C%20perfect%20for%20a%20children%5Cs%20English%20learning%20website%2C%20bright%20colors%2C%20friendly%20atmosphere%2C%20digital%20illustration%20style%2C%20high%20quality&width=1200&height=400&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/30"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center py-12 px-6 md:px-12">
+                <div class="md:w-1/2 text-white mb-8 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Học Tiếng Anh Vui Vẻ Cùng Bé</h1>
+                    <p class="text-lg mb-6">Khám phá thế giới tiếng Anh qua các bài học tương tác, trò chơi thú vị và hoạt động sáng tạo dành riêng cho trẻ tiểu học.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Bắt đầu học ngay</button>
+                        <button class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-button font-medium hover:bg-white/10 transition duration-300 whitespace-nowrap">Xem hướng dẫn</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20children%20learning%20English%2C%20diverse%20group%20of%20kids%20with%20books%20and%20tablets%2C%20colorful%20digital%20illustration%2C%20educational%20theme%2C%20transparent%20background&width=500&height=400&seq=kids1&orientation=portrait" alt="Trẻ em học tiếng Anh" class="max-w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Learning Modules -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Các Phần Học Chính</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Vocabulary Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=colorful%20illustrated%20vocabulary%20cards%20with%20English%20words%20and%20pictures%2C%20educational%20flashcards%20for%20children%2C%20bright%20colors%2C%20cartoon%20style%2C%20high%20quality%20digital%20illustration&width=400&height=200&seq=vocab1&orientation=landscape" alt="Từ vựng" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-book-3-line ri-lg text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Từ Vựng</h3>
+                        <p class="text-gray-600 mb-4">Học từ mới qua hình ảnh, âm thanh và trò chơi tương tác. Phát triển vốn từ vựng phong phú.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">12 bài học</span>
+                            <button class="bg-primary text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-primary/90 transition duration-300 whitespace-nowrap">Học ngay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grammar Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=grammar%20learning%20illustration%20for%20children%2C%20sentence%20structure%20diagrams%2C%20colorful%20educational%20graphics%2C%20cartoon%20style%2C%20simple%20English%20grammar%20rules%20visualized%2C%20digital%20illustration&width=400&height=200&seq=grammar1&orientation=landscape" alt="Ngữ pháp" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-file-list-3-line ri-lg text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ngữ Pháp</h3>
+                        <p class="text-gray-600 mb-4">Học cấu trúc câu và quy tắc ngữ pháp cơ bản thông qua các bài tập đơn giản, dễ hiểu.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">8 bài học</span>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-purple-700 transition duration-300 whitespace-nowrap">Học ngay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listening & Speaking Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=children%20listening%20and%20speaking%20English%2C%20kids%20with%20headphones%2C%20speech%20bubbles%2C%20language%20learning%2C%20colorful%20cartoon%20style%2C%20digital%20illustration%2C%20educational%20theme&width=400&height=200&seq=listening1&orientation=landscape" alt="Nghe và Nói" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-volume-up-line ri-lg text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Luyện Nghe & Nói</h3>
+                        <p class="text-gray-600 mb-4">Rèn luyện kỹ năng nghe và phát âm chuẩn qua các bài tập tương tác và trò chơi âm thanh.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">10 bài học</span>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">Học ngay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reading Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=children%20reading%20English%20books%2C%20illustrated%20storybooks%20for%20kids%2C%20reading%20comprehension%2C%20colorful%20cartoon%20style%2C%20educational%20setting%2C%20digital%20illustration&width=400&height=200&seq=reading1&orientation=landscape" alt="Đọc hiểu" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-book-read-line ri-lg text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Đọc Hiểu</h3>
+                        <p class="text-gray-600 mb-4">Phát triển kỹ năng đọc hiểu qua các câu chuyện ngắn, thú vị và phù hợp với lứa tuổi.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">9 bài học</span>
+                            <button class="bg-amber-600 text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-amber-700 transition duration-300 whitespace-nowrap">Học ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Progress Section -->
+        <section class="mb-12 bg-white rounded-lg shadow-md p-6 border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Tiến Độ Học Tập Của Bé</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Progress Charts -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-50 rounded-lg p-4 h-80" id="progressChart"></div>
+                </div>
+                
+                <!-- Student Info -->
+                <div class="flex flex-col">
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-2xl font-bold mr-4">MH</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-800">Minh Hoàng</h3>
+                                <p class="text-gray-600">Lớp 3 - Tiểu học Nguyễn Du</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Tổng thời gian học</span>
+                                    <span class="text-sm font-medium text-gray-700">12 giờ 30 phút</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Bài học đã hoàn thành</span>
+                                    <span class="text-sm font-medium text-gray-700">18/40</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Điểm trung bình</span>
+                                    <span class="text-sm font-medium text-gray-700">8.5/10</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Thành tích</h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-2">
+                                    <i class="ri-medal-line ri-lg text-amber-600"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 text-center">Siêu sao từ vựng</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                                    <i class="ri-star-line ri-lg text-blue-600"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 text-center">Nhà ngữ pháp</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
+                                    <i class="ri-trophy-line ri-lg text-green-600"></i>
+                                </div>
+                                <span class="text-xs text-gray-600 text-center">Học 7 ngày liên tục</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Hoạt Động Gần Đây</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Ngày</th>
+                                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Bài học</th>
+                                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Thời gian</th>
+                                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Điểm số</th>
+                                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="px-4 py-3 text-sm text-gray-700">09/06/2025</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">Từ vựng: Các loài động vật</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">25 phút</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">9/10</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Hoàn thành</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="px-4 py-3 text-sm text-gray-700">08/06/2025</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">Ngữ pháp: Thì hiện tại đơn</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">30 phút</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">8/10</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Hoàn thành</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="px-4 py-3 text-sm text-gray-700">07/06/2025</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">Luyện nghe: Hội thoại cơ bản</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">20 phút</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">7/10</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Hoàn thành</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="px-4 py-3 text-sm text-gray-700">06/06/2025</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">Đọc hiểu: Câu chuyện ngắn</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">15 phút</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">-</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <span class="px-2 py-1 bg-amber-100 text-amber-800 rounded-full text-xs">Đang học</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 text-sm text-gray-700">05/06/2025</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">Từ vựng: Màu sắc và hình dạng</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">22 phút</td>
+                                <td class="px-4 py-3 text-sm text-gray-700">10/10</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Hoàn thành</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parent Settings -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Cài Đặt Dành Cho Phụ Huynh</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Cài đặt tài khoản</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label for="parentName" class="block text-sm font-medium text-gray-700 mb-1">Tên phụ huynh</label>
+                                <input type="text" id="parentName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" value="Nguyễn Văn An">
+                            </div>
+                            
+                            <div>
+                                <label for="parentEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="parentEmail" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" value="nguyenvanan@gmail.com">
+                            </div>
+                            
+                            <div>
+                                <label for="childName" class="block text-sm font-medium text-gray-700 mb-1">Tên của bé</label>
+                                <input type="text" id="childName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" value="Minh Hoàng">
+                            </div>
+                            
+                            <div>
+                                <label for="childAge" class="block text-sm font-medium text-gray-700 mb-1">Tuổi của bé</label>
+                                <input type="number" id="childAge" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" value="8">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Tùy chọn học tập</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-700">Thông báo tiến độ hàng tuần</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-700">Âm thanh và hiệu ứng</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-700">Chế độ tập trung</span>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Thời gian học mỗi ngày (phút)</label>
+                                <input type="range" class="range-slider" min="15" max="60" value="30" id="studyTimeRange">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>15</span>
+                                    <span>30</span>
+                                    <span>45</span>
+                                    <span>60</span>
+                                </div>
+                                <div class="text-center text-sm font-medium text-primary mt-2" id="studyTimeValue">30 phút</div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Độ khó</label>
+                                <div class="flex space-x-4">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="difficulty" class="hidden" value="easy" checked>
+                                        <div class="w-4 h-4 border border-gray-300 rounded-full mr-2 flex items-center justify-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full hidden radio-checked"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-700">Dễ</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="difficulty" class="hidden" value="medium">
+                                        <div class="w-4 h-4 border border-gray-300 rounded-full mr-2 flex items-center justify-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full hidden radio-checked"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-700">Trung bình</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="difficulty" class="hidden" value="hard">
+                                        <div class="w-4 h-4 border border-gray-300 rounded-full mr-2 flex items-center justify-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full hidden radio-checked"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-700">Khó</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-end">
+                    <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-button text-sm font-medium hover:bg-gray-300 transition duration-300 mr-4 whitespace-nowrap">Hủy bỏ</button>
+                    <button class="bg-primary text-white px-4 py-2 rounded-button text-sm font-medium hover:bg-primary/90 transition duration-300 whitespace-nowrap">Lưu thay đổi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Phụ Huynh Nói Gì Về Chúng Tôi</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Con tôi rất thích học tiếng Anh trên trang web này. Các bài học sinh động và thú vị giúp bé tiến bộ rất nhanh. Đặc biệt phần từ vựng với hình ảnh minh họa rất dễ nhớ."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium mr-3">TH</div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Trần Hương</h4>
+                            <p class="text-xs text-gray-500">Phụ huynh học sinh lớp 2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Tôi rất hài lòng với hệ thống theo dõi tiến độ học tập. Tôi có thể dễ dàng biết được con mình đã học những gì và kết quả ra sao. Các bài học phù hợp với lứa tuổi tiểu học."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-medium mr-3">ĐT</div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Đỗ Thanh</h4>
+                            <p class="text-xs text-gray-500">Phụ huynh học sinh lớp 4</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Phần luyện nghe nói rất hiệu quả. Con tôi đã tự tin hơn nhiều khi giao tiếp bằng tiếng Anh. Giao diện thân thiện, dễ sử dụng và các trò chơi học tập rất hấp dẫn trẻ em."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-medium mr-3">LM</div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Lê Minh</h4>
+                            <p class="text-xs text-gray-500">Phụ huynh học sinh lớp 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-white mb-4 block">KidEnglish</a>
+                    <p class="text-gray-300 mb-4">Nền tảng học tiếng Anh trực tuyến dành cho trẻ em tiểu học, giúp các bé học tiếng Anh một cách vui vẻ và hiệu quả.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-facebook-fill ri-lg"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-youtube-fill ri-lg"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-instagram-fill ri-lg"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liên kết</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Trang chủ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Bài học</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Trò chơi</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Thành tích</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hướng dẫn</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hỗ trợ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Câu hỏi thường gặp</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Liên hệ hỗ trợ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liên hệ</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-300">123 Nguyễn Huệ, Quận 1, TP.HCM</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-300">028 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-300">info@kidenglish.vn</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h4 class="text-sm font-bold mb-2">Đăng ký nhận tin</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Email của bạn" class="px-4 py-2 rounded-l-lg border-none focus:outline-none text-gray-800 text-sm w-full">
+                            <button class="bg-primary text-white px-4 py-2 rounded-r-lg text-sm font-medium hover:bg-primary/90 transition duration-300 whitespace-nowrap">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2025 KidEnglish. Tất cả quyền được bảo lưu.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-visa-fill ri-lg text-gray-300"></i>
+                    </div>
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-mastercard-fill ri-lg text-gray-300"></i>
+                    </div>
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-paypal-fill ri-lg text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="progressChartScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartDom = document.getElementById('progressChart');
+            const myChart = echarts.init(chartDom);
+            
+            const option = {
+                animation: false,
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                legend: {
+                    data: ['Từ vựng', 'Ngữ pháp', 'Nghe & Nói', 'Đọc hiểu'],
+                    textStyle: {
+                        color: '#1f2937'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#d1d5db'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#1f2937'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    max: 10,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#d1d5db'
+                        }
+                    },
+                    axisLabel: {
+                        color: '#1f2937'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: '#e5e7eb'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'Từ vựng',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [7, 8, 9, 8, 7, 9, 9],
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(87, 181, 231, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(87, 181, 231, 0.2)'
+                                }, {
+                                    offset: 1, color: 'rgba(87, 181, 231, 0.01)'
+                                }]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Ngữ pháp',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [6, 7, 6, 8, 8, 7, 8],
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(141, 211, 199, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(141, 211, 199, 0.2)'
+                                }, {
+                                    offset: 1, color: 'rgba(141, 211, 199, 0.01)'
+                                }]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Nghe & Nói',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [5, 6, 7, 7, 6, 7, 8],
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(251, 191, 114, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(251, 191, 114, 0.2)'
+                                }, {
+                                    offset: 1, color: 'rgba(251, 191, 114, 0.01)'
+                                }]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Đọc hiểu',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [4, 5, 6, 7, 7, 8, 7],
+                        smooth: true,
+                        symbol: 'none',
+                        lineStyle: {
+                            width: 3,
+                            color: 'rgba(252, 141, 98, 1)'
+                        },
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(252, 141, 98, 0.2)'
+                                }, {
+                                    offset: 1, color: 'rgba(252, 141, 98, 0.01)'
+                                }]
+                            }
+                        }
+                    }
+                ]
+            };
+            
+            myChart.setOption(option);
+            
+            window.addEventListener('resize', function() {
+                myChart.resize();
+            });
+        });
+    </script>
+
+    <script id="rangeSliderScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const rangeSlider = document.getElementById('studyTimeRange');
+            const rangeValue = document.getElementById('studyTimeValue');
+            
+            if (rangeSlider && rangeValue) {
+                rangeSlider.addEventListener('input', function() {
+                    rangeValue.textContent = this.value + ' phút';
+                });
+            }
+        });
+    </script>
+
+    <script id="radioButtonsScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            
+            radioButtons.forEach(radio => {
+                // Set initial state
+                if (radio.checked) {
+                    const checkedDiv = radio.nextElementSibling.querySelector('.radio-checked');
+                    if (checkedDiv) {
+                        checkedDiv.classList.remove('hidden');
+                    }
+                }
+                
+                radio.addEventListener('change', function() {
+                    // Hide all checked indicators
+                    document.querySelectorAll('.radio-checked').forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    
+                    // Show the checked indicator for the selected radio
+                    if (this.checked) {
+                        const checkedDiv = this.nextElementSibling.querySelector('.radio-checked');
+                        if (checkedDiv) {
+                            checkedDiv.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
