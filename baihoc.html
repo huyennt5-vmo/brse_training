@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết bài học - Hệ thống học tiếng Anh cho bé</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B6B',secondary:'#4ECDC4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f8f9ff;
+        }
+        .progress-bar {
+            height: 12px;
+            border-radius: 6px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #FF6B6B, #FF9E7D);
+        }
+        .audio-button:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FF6B6B;
+            cursor: pointer;
+        }
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            height: 24px;
+            width: 24px;
+            border-radius: 4px;
+            border: 2px solid #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #FF6B6B;
+            border-color: #FF6B6B;
+        }
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .star {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-['Pacifico'] text-primary mr-8">logo</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium">Trang chủ</a>
+                    <a href="#" class="text-primary font-medium">Khóa học</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium">Trò chơi</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium">Thành tích</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20avatar%20of%20a%20little%20girl%20with%20big%20eyes%20and%20short%20hair%2C%20simple%20illustration%20style%2C%20child-friendly%2C%20pastel%20colors%2C%20white%20background&width=100&height=100&seq=avatar1&orientation=squarish" alt="Avatar" class="w-8 h-8 rounded-full object-cover">
+                    </div>
+                    <span class="text-sm font-medium">Nguyễn Minh Anh</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-gray-200">
+                    <i class="ri-notification-3-line text-gray-600"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex items-center mb-6 text-sm text-gray-500">
+            <a href="#" class="hover:text-primary">Trang chủ</a>
+            <i class="ri-arrow-right-s-line mx-2"></i>
+            <a href="#" class="hover:text-primary">Khóa học</a>
+            <i class="ri-arrow-right-s-line mx-2"></i>
+            <a href="#" class="hover:text-primary">Động vật</a>
+            <i class="ri-arrow-right-s-line mx-2"></i>
+            <span class="text-gray-700 font-medium">Các loài động vật trong rừng</span>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <div class="flex items-center mb-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">Bài học 3</span>
+                            <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center ml-3">
+                                <i class="ri-star-fill text-yellow-500"></i>
+                            </div>
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center ml-2">
+                                <i class="ri-time-line text-blue-500"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">15 phút</span>
+                        </div>
+                        
+                        <h1 class="text-3xl font-bold text-gray-800 mb-4">Các loài động vật trong rừng</h1>
+                        
+                        <p class="text-gray-600 mb-6">Khám phá thế giới thú vị của các loài động vật sống trong rừng. Trong bài học này, bé sẽ học về tên gọi, đặc điểm và âm thanh của các loài động vật hoang dã.</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Tiến độ học tập</span>
+                                <span class="text-sm font-medium text-primary">65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <button class="flex items-center px-5 py-3 bg-primary text-white font-medium rounded-button hover:bg-primary/90 transition-colors">
+                                <i class="ri-play-circle-line mr-2"></i>
+                                Tiếp tục học
+                            </button>
+                            <button class="flex items-center px-5 py-3 bg-white border border-gray-200 text-gray-700 font-medium rounded-button hover:bg-gray-50 transition-colors">
+                                <i class="ri-restart-line mr-2"></i>
+                                Học lại từ đầu
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/3">
+                        <div class="rounded-xl overflow-hidden h-64 bg-gray-100">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20forest%20animals%20cartoon%20illustration%20for%20children%2C%20colorful%2C%20friendly%20animals%20like%20fox%2C%20deer%2C%20rabbit%2C%20owl%20in%20forest%20setting%2C%20educational%20style%2C%20white%20background%2C%20high%20quality&width=600&height=400&seq=forest1&orientation=landscape" alt="Động vật trong rừng" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-book-open-line text-blue-500 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Từ vựng</h3>
+                <p class="text-gray-600 mb-4">10 từ mới về các loài động vật trong rừng</p>
+                <div class="flex justify-between">
+                    <span class="text-sm font-medium text-primary">8/10 hoàn thành</span>
+                    <i class="ri-arrow-right-line text-primary"></i>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-video-line text-green-500 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Video bài học</h3>
+                <p class="text-gray-600 mb-4">Hoạt hình minh họa về cuộc sống trong rừng</p>
+                <div class="flex justify-between">
+                    <span class="text-sm font-medium text-primary">Đã xem 1 lần</span>
+                    <i class="ri-arrow-right-line text-primary"></i>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="ri-game-line text-yellow-500 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Trò chơi</h3>
+                <p class="text-gray-600 mb-4">3 trò chơi ôn tập kiến thức vui nhộn</p>
+                <div class="flex justify-between">
+                    <span class="text-sm font-medium text-primary">1/3 hoàn thành</span>
+                    <i class="ri-arrow-right-line text-primary"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+                <h2 class="text-xl font-bold text-gray-800">Từ vựng</h2>
+                <div class="flex items-center">
+                    <button class="flex items-center text-sm text-gray-600 hover:text-primary">
+                        <i class="ri-volume-up-line mr-1"></i>
+                        Nghe tất cả
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center p-4 border border-gray-100 rounded-xl hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20fox%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=200&height=200&seq=fox1&orientation=squarish" alt="Fox" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="font-bold text-gray-800">Fox</h4>
+                                <button class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center audio-button">
+                                    <i class="ri-volume-up-line text-primary"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-600 text-sm">Con cáo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 border border-gray-100 rounded-xl hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20deer%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=200&height=200&seq=deer1&orientation=squarish" alt="Deer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="font-bold text-gray-800">Deer</h4>
+                                <button class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center audio-button">
+                                    <i class="ri-volume-up-line text-primary"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-600 text-sm">Con hươu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 border border-gray-100 rounded-xl hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20owl%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=200&height=200&seq=owl1&orientation=squarish" alt="Owl" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="font-bold text-gray-800">Owl</h4>
+                                <button class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center audio-button">
+                                    <i class="ri-volume-up-line text-primary"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-600 text-sm">Con cú</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 border border-gray-100 rounded-xl hover:border-primary/30 hover:bg-primary/5 transition-colors cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20rabbit%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=200&height=200&seq=rabbit1&orientation=squarish" alt="Rabbit" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-1">
+                                <h4 class="font-bold text-gray-800">Rabbit</h4>
+                                <button class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center audio-button">
+                                    <i class="ri-volume-up-line text-primary"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-600 text-sm">Con thỏ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <button class="px-5 py-2 text-primary font-medium border border-primary/30 rounded-button hover:bg-primary/5 transition-colors whitespace-nowrap">
+                        Xem tất cả từ vựng
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="border-b border-gray-100 px-6 py-4">
+                <h2 class="text-xl font-bold text-gray-800">Video bài học</h2>
+            </div>
+            
+            <div class="p-6">
+                <div class="rounded-xl overflow-hidden bg-gray-900 mb-4 relative">
+                    <img src="https://readdy.ai/api/search-image?query=forest%20animals%20cartoon%20scene%20from%20educational%20video%20for%20children%2C%20colorful%2C%20cute%20animals%20in%20forest%20habitat%2C%20high%20quality%20animation%20still%20frame&width=800&height=450&seq=video1&orientation=landscape" alt="Video bài học" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <i class="ri-play-fill text-white text-3xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-800 mb-2">Cuộc sống trong rừng</h3>
+                    <p class="text-gray-600 text-sm">Video hoạt hình giới thiệu về các loài động vật sống trong rừng và cách chúng sinh sống.</p>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-2 hover:bg-gray-200 transition-colors">
+                            <i class="ri-skip-back-line text-gray-700"></i>
+                        </button>
+                        <button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-2 hover:bg-primary/90 transition-colors">
+                            <i class="ri-play-fill text-white"></i>
+                        </button>
+                        <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                            <i class="ri-skip-forward-line text-gray-700"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <span class="text-sm text-gray-600 mr-2">2:35 / 5:00</span>
+                        <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                            <i class="ri-fullscreen-line text-gray-700"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <input type="range" min="0" max="100" value="47" class="w-full">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="border-b border-gray-100 px-6 py-4">
+                <h2 class="text-xl font-bold text-gray-800">Bài tập tương tác</h2>
+            </div>
+            
+            <div class="p-6">
+                <div class="mb-8">
+                    <h3 class="font-bold text-gray-800 mb-4">1. Chọn đáp án đúng</h3>
+                    
+                    <div class="p-4 border border-gray-100 rounded-xl mb-4">
+                        <p class="font-medium text-gray-800 mb-3">Which animal sleeps during the day and hunts at night?</p>
+                        <div class="space-y-3">
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question1">
+                                <span class="checkmark mr-3"></span>
+                                <span>Fox</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question1" checked>
+                                <span class="checkmark mr-3"></span>
+                                <span>Owl</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question1">
+                                <span class="checkmark mr-3"></span>
+                                <span>Rabbit</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question1">
+                                <span class="checkmark mr-3"></span>
+                                <span>Deer</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 border border-gray-100 rounded-xl">
+                        <p class="font-medium text-gray-800 mb-3">What do rabbits like to eat?</p>
+                        <div class="space-y-3">
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question2">
+                                <span class="checkmark mr-3"></span>
+                                <span>Meat</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question2">
+                                <span class="checkmark mr-3"></span>
+                                <span>Fish</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question2" checked>
+                                <span class="checkmark mr-3"></span>
+                                <span>Carrots</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="radio" name="question2">
+                                <span class="checkmark mr-3"></span>
+                                <span>Insects</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">2. Nối từ với hình ảnh</h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 border border-gray-100 rounded-xl flex items-center">
+                            <div class="w-12 h-12 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20squirrel%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=100&height=100&seq=squirrel1&orientation=squarish" alt="Squirrel" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <input type="text" value="Squirrel" class="w-full border-none bg-transparent font-medium text-gray-800 focus:outline-none">
+                                    <i class="ri-check-line text-green-500 ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-100 rounded-xl flex items-center">
+                            <div class="w-12 h-12 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20hedgehog%2C%20forest%20animal%20for%20children%20education%2C%20simple%20style%2C%20white%20background&width=100&height=100&seq=hedgehog1&orientation=squarish" alt="Hedgehog" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <input type="text" placeholder="Type answer here..." class="w-full border-none bg-transparent font-medium text-gray-800 focus:outline-none">
+                                    <i class="ri-question-line text-gray-400 ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-between">
+                    <button class="px-5 py-3 bg-white border border-gray-200 text-gray-700 font-medium rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        <i class="ri-arrow-left-line mr-2"></i>
+                        Quay lại
+                    </button>
+                    
+                    <button class="px-5 py-3 bg-primary text-white font-medium rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                        Tiếp theo
+                        <i class="ri-arrow-right-line ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="border-b border-gray-100 px-6 py-4">
+                <h2 class="text-xl font-bold text-gray-800">Trò chơi ôn tập</h2>
+            </div>
+            
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-gray-100 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-sm transition-all">
+                        <div class="h-40 bg-gray-100">
+                            <img src="https://readdy.ai/api/search-image?query=memory%20card%20game%20with%20forest%20animals%2C%20educational%20game%20for%20children%2C%20colorful%20cards%20with%20animal%20illustrations%2C%20game%20interface&width=400&height=300&seq=game1&orientation=landscape" alt="Trò chơi nhớ thẻ" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800 mb-2">Trò chơi nhớ thẻ</h3>
+                            <p class="text-gray-600 text-sm mb-3">Lật các thẻ để tìm cặp động vật giống nhau</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex">
+                                    <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <i class="ri-star-fill text-yellow-500 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-fill text-yellow-500 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                </div>
+                                <button class="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full whitespace-nowrap">
+                                    Chơi ngay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-100 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-sm transition-all">
+                        <div class="h-40 bg-gray-100">
+                            <img src="https://readdy.ai/api/search-image?query=word%20puzzle%20game%20with%20forest%20animals%2C%20educational%20game%20for%20children%2C%20colorful%20interface%20with%20animal%20illustrations%2C%20game%20interface&width=400&height=300&seq=game2&orientation=landscape" alt="Ô chữ động vật" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800 mb-2">Ô chữ động vật</h3>
+                            <p class="text-gray-600 text-sm mb-3">Tìm tên các loài động vật trong bảng chữ</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex">
+                                    <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center">
+                                        <i class="ri-star-fill text-yellow-500 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                </div>
+                                <button class="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full whitespace-nowrap">
+                                    Chơi ngay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-100 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-sm transition-all">
+                        <div class="h-40 bg-gray-100">
+                            <img src="https://readdy.ai/api/search-image?query=animal%20sounds%20matching%20game%2C%20educational%20game%20for%20children%2C%20colorful%20interface%20with%20animal%20illustrations%20and%20sound%20icons%2C%20game%20interface&width=400&height=300&seq=game3&orientation=landscape" alt="Nhận biết âm thanh" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800 mb-2">Nhận biết âm thanh</h3>
+                            <p class="text-gray-600 text-sm mb-3">Nghe và đoán tên động vật phát ra âm thanh</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex">
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center -ml-1">
+                                        <i class="ri-star-line text-gray-400 text-xs"></i>
+                                    </div>
+                                </div>
+                                <button class="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full whitespace-nowrap">
+                                    Chơi ngay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
+            <div class="border-b border-gray-100 px-6 py-4">
+                <h2 class="text-xl font-bold text-gray-800">Đánh giá bài học</h2>
+            </div>
+            
+            <div class="p-6">
+                <div class="flex flex-col items-center mb-6">
+                    <p class="text-gray-600 mb-3">Bé thích bài học này chứ?</p>
+                    <div class="flex space-x-2">
+                        <i class="ri-star-fill text-3xl star text-yellow-400 hover:text-yellow-500"></i>
+                        <i class="ri-star-fill text-3xl star text-yellow-400 hover:text-yellow-500"></i>
+                        <i class="ri-star-fill text-3xl star text-yellow-400 hover:text-yellow-500"></i>
+                        <i class="ri-star-fill text-3xl star text-yellow-400 hover:text-yellow-500"></i>
+                        <i class="ri-star-line text-3xl star text-gray-300 hover:text-yellow-500"></i>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-2">Phụ huynh có nhận xét gì không?</label>
+                    <textarea class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary resize-none" rows="3" placeholder="Nhập nhận xét của bạn..."></textarea>
+                </div>
+                
+                <div class="flex justify-center">
+                    <button class="px-5 py-3 bg-primary text-white font-medium rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                        Gửi đánh giá
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="border-b border-gray-100 px-6 py-4">
+                <h2 class="text-xl font-bold text-gray-800">Bài học tiếp theo</h2>
+            </div>
+            
+            <div class="p-6">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <div class="rounded-xl overflow-hidden h-40 bg-gray-100">
+                            <img src="https://readdy.ai/api/search-image?query=cute%20farm%20animals%20cartoon%20illustration%20for%20children%2C%20colorful%2C%20friendly%20animals%20like%20cow%2C%20pig%2C%20chicken%2C%20educational%20style%2C%20white%20background%2C%20high%20quality&width=300&height=200&seq=farm1&orientation=landscape" alt="Các loài động vật trong nông trại" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-3/4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Bài 4: Các loài động vật trong nông trại</h3>
+                        <p class="text-gray-600 mb-4">Khám phá thế giới thú vị của các loài động vật sống trong nông trại. Trong bài học này, bé sẽ học về tên gọi, đặc điểm và âm thanh của các loài vật nuôi.</p>
+                        
+                        <div class="flex items-center text-sm text-gray-600 mb-4">
+                            <div class="flex items-center mr-4">
+                                <i class="ri-time-line mr-1"></i>
+                                <span>15 phút</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="ri-book-open-line mr-1"></i>
+                                <span>12 từ vựng mới</span>
+                            </div>
+                        </div>
+                        
+                        <button class="px-5 py-3 bg-primary text-white font-medium rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">
+                            Bắt đầu học
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-4 inline-block">logo</a>
+                    <p class="text-gray-600 mb-4">Hệ thống học tiếng Anh thú vị và hiệu quả dành cho trẻ em từ 4-12 tuổi.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+                            <i class="ri-facebook-fill text-gray-700"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+                            <i class="ri-youtube-fill text-gray-700"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+                            <i class="ri-instagram-line text-gray-700"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-4">Liên kết</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Trang chủ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Khóa học</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Trò chơi</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Thành tích</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-4">Hỗ trợ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Câu hỏi thường gặp</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Điều khoản sử dụng</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-4">Đăng ký nhận tin</h4>
+                    <p class="text-gray-600 mb-4">Nhận thông tin về bài học mới và khuyến mãi</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email của bạn" class="flex-grow px-4 py-2 border border-gray-200 rounded-l-lg focus:outline-none focus:border-primary">
+                        <button class="px-4 py-2 bg-primary text-white rounded-r-lg hover:bg-primary/90 transition-colors whitespace-nowrap">
+                            Đăng ký
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm mb-4 md:mb-0">© 2025 Hệ thống học tiếng Anh cho bé. Tất cả quyền được bảo lưu.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm">Chính sách bảo mật</a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm">Điều khoản sử dụng</a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="audioButtonsScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioButtons = document.querySelectorAll('.audio-button');
+            
+            audioButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Simulate audio playing
+                    const icon = this.querySelector('i');
+                    
+                    if (icon.classList.contains('ri-volume-up-line')) {
+                        icon.classList.remove('ri-volume-up-line');
+                        icon.classList.add('ri-loader-2-line');
+                        
+                        setTimeout(() => {
+                            icon.classList.remove('ri-loader-2-line');
+                            icon.classList.add('ri-volume-up-line');
+                        }, 1000);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="starsRatingScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star');
+            
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function() {
+                    // Reset all stars
+                    stars.forEach((s, i) => {
+                        if (i <= index) {
+                            s.classList.remove('ri-star-line', 'text-gray-300');
+                            s.classList.add('ri-star-fill', 'text-yellow-400');
+                        } else {
+                            s.classList.remove('ri-star-fill', 'text-yellow-400');
+                            s.classList.add('ri-star-line', 'text-gray-300');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết bài học - Hệ thống học tiếng Anh cho bé</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B6B',secondary:'#4ECDC4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #FAFBFC;
+        }
+        .progress-bar {
+            height: 12px;
+            border-radius: 6px;
+            background-color: #E9ECEF;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #4ECDC4 0%, #FF6B6B 100%);
+            transition: width 0.3s ease;
+        }
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #E9ECEF;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            background-color: white;
+        }
+        .custom-checkbox:checked {
+            background-color: #FF6B6B;
+            border-color: #FF6B6B;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            cursor: pointer;
+            color: #DFE3E8;
+            font-size: 24px;
+        }
+        .star-rating input:checked ~ label {
+            color: #FFD166;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #FFD166;
+        }
+        .audio-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #FF6B6B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .audio-button:hover {
+            transform: scale(1.05);
+        }
+        .word-card {
+            transition: transform 0.2s ease;
+        }
+        .word-card:hover {
+            transform: translateY(-5px);
+        }
+        .game-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .game-card:hover {
+            border-color: #4ECDC4;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-['Pacifico'] text-primary mr-10">logo</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-700 hover:text-primary font-semibold">Trang chủ</a>
+                    <a href="#" class="text-primary font-semibold border-b-2 border-primary">Khóa học</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-semibold">Trò chơi</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-semibold">Thành tích</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full">
+                    <i class="ri-notification-3-line text-primary"></i>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20avatar%20of%20a%20smiling%20child%20with%20big%20eyes%2C%20colorful%2C%20cheerful%2C%20friendly%2C%20digital%20art%20style%2C%20suitable%20for%20childrens%20educational%20app&width=100&height=100&seq=1&orientation=squarish" alt="Avatar" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Minh Anh</p>
+                        <p class="text-xs text-gray-500">Lớp Mầm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <div class="flex items-center text-sm text-gray-500 mb-6">
+            <a href="#" class="hover:text-primary">Trang chủ</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-primary">Khóa học</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-primary">Động vật</a>
+            <span class="mx-2">/</span>
+            <span class="text-primary font-medium">Các loài động vật trong nông trại</span>
+        </div>
+
+        <!-- Lesson Header -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-2/3">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-3">Các loài động vật trong nông trại</h1>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="flex items-center text-gray-600">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span>15 phút</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span>Độ khó: Dễ</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-book-open-line"></i>
+                            </div>
+                            <span>10 từ vựng</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">Bài học giúp bé làm quen với các loài động vật trong nông trại bằng tiếng Anh. Bé sẽ được học cách phát âm, nhận biết hình ảnh và âm thanh của từng loài vật.</p>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Tiến độ học tập</span>
+                            <span class="text-sm font-medium text-primary">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-primary text-white px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-play-circle-line"></i>
+                            </div>
+                            Tiếp tục học
+                        </button>
+                        <button class="bg-white border border-gray-200 text-gray-700 px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-restart-line"></i>
+                            </div>
+                            Học lại
+                        </button>
+                        <button class="bg-white border border-gray-200 text-gray-700 px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-download-line"></i>
+                            </div>
+                            Tải về
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 rounded-lg overflow-hidden h-64">
+                    <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20farm%20animals%20including%20cow%2C%20pig%2C%20chicken%2C%20horse%2C%20and%20sheep%20gathered%20together%20in%20a%20colorful%20farm%20setting%2C%20cheerful%2C%20educational%2C%20digital%20art%20style%2C%20suitable%20for%20children&width=400&height=300&seq=2&orientation=landscape" alt="Động vật nông trại" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lesson Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+            <!-- Left Column - Vocabulary -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-gray-800">Từ vựng</h2>
+                        <button class="text-primary flex items-center text-sm font-medium">
+                            <span>Xem tất cả</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <div class="word-card bg-gray-50 rounded-lg p-3 text-center">
+                            <div class="h-24 mb-3 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20cow%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=150&height=150&seq=3&orientation=squarish" alt="Cow" class="w-full h-full object-cover object-top">
+                            </div>
+                            <p class="font-bold text-gray-800 mb-1">Cow</p>
+                            <p class="text-gray-600 text-sm mb-2">Con bò</p>
+                            <button class="audio-button mx-auto">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-volume-up-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="word-card bg-gray-50 rounded-lg p-3 text-center">
+                            <div class="h-24 mb-3 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20pig%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=150&height=150&seq=4&orientation=squarish" alt="Pig" class="w-full h-full object-cover object-top">
+                            </div>
+                            <p class="font-bold text-gray-800 mb-1">Pig</p>
+                            <p class="text-gray-600 text-sm mb-2">Con heo</p>
+                            <button class="audio-button mx-auto">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-volume-up-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="word-card bg-gray-50 rounded-lg p-3 text-center">
+                            <div class="h-24 mb-3 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20chicken%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=150&height=150&seq=5&orientation=squarish" alt="Chicken" class="w-full h-full object-cover object-top">
+                            </div>
+                            <p class="font-bold text-gray-800 mb-1">Chicken</p>
+                            <p class="text-gray-600 text-sm mb-2">Con gà</p>
+                            <button class="audio-button mx-auto">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-volume-up-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="word-card bg-gray-50 rounded-lg p-3 text-center">
+                            <div class="h-24 mb-3 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20horse%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=150&height=150&seq=6&orientation=squarish" alt="Horse" class="w-full h-full object-cover object-top">
+                            </div>
+                            <p class="font-bold text-gray-800 mb-1">Horse</p>
+                            <p class="text-gray-600 text-sm mb-2">Con ngựa</p>
+                            <button class="audio-button mx-auto">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-volume-up-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="word-card bg-gray-50 rounded-lg p-3 text-center">
+                            <div class="h-24 mb-3 rounded overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20sheep%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=150&height=150&seq=7&orientation=squarish" alt="Sheep" class="w-full h-full object-cover object-top">
+                            </div>
+                            <p class="font-bold text-gray-800 mb-1">Sheep</p>
+                            <p class="text-gray-600 text-sm mb-2">Con cừu</p>
+                            <button class="audio-button mx-auto">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-volume-up-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Section -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Video bài học</h2>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden mb-4 h-72 relative">
+                        <img src="https://readdy.ai/api/search-image?query=farm%20animals%20educational%20video%20thumbnail%2C%20colorful%20cartoon%20farm%20with%20animals%2C%20suitable%20for%20childrens%20educational%20content%2C%20digital%20art%20style&width=800&height=450&seq=8&orientation=landscape" alt="Video bài học" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-primary rounded-full cursor-pointer hover:bg-primary/90 transition-all">
+                                <div class="w-8 h-8 flex items-center justify-center text-white">
+                                    <i class="ri-play-fill text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-3">
+                            <button class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-download-line"></i>
+                                </div>
+                                Tải về
+                            </button>
+                            <button class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center whitespace-nowrap">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-share-line"></i>
+                                </div>
+                                Chia sẻ
+                            </button>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500 mr-2">Đánh giá:</span>
+                            <div class="star-rating flex">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label for="star5"><i class="ri-star-fill"></i></label>
+                                <input type="radio" id="star4" name="rating" value="4" checked />
+                                <label for="star4"><i class="ri-star-fill"></i></label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label for="star3"><i class="ri-star-fill"></i></label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label for="star2"><i class="ri-star-fill"></i></label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label for="star1"><i class="ri-star-fill"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Exercise -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Bài tập tương tác</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">1. Nối từ với hình ảnh tương ứng</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 shadow-sm">
+                                        <span class="font-bold text-primary">A</span>
+                                    </div>
+                                    <span class="font-medium">Horse</span>
+                                </div>
+                                <div class="w-16 h-16 rounded overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20pig%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=100&height=100&seq=9&orientation=squarish" alt="Pig" class="w-full h-full object-cover object-top">
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 shadow-sm">
+                                        <span class="font-bold text-primary">B</span>
+                                    </div>
+                                    <span class="font-medium">Pig</span>
+                                </div>
+                                <div class="w-16 h-16 rounded overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20horse%2C%20simple%2C%20colorful%2C%20white%20background%2C%20educational%2C%20digital%20art%20style%20for%20children&width=100&height=100&seq=10&orientation=squarish" alt="Horse" class="w-full h-full object-cover object-top">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">2. Chọn đáp án đúng</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-medium mb-3">Con vật nào kêu "Moo"?</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q1a" name="q1" class="custom-checkbox mr-3">
+                                        <label for="q1a" class="cursor-pointer">Pig</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q1b" name="q1" class="custom-checkbox mr-3" checked>
+                                        <label for="q1b" class="cursor-pointer">Cow</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q1c" name="q1" class="custom-checkbox mr-3">
+                                        <label for="q1c" class="cursor-pointer">Chicken</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-medium mb-3">Con vật nào có lông cừu?</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q2a" name="q2" class="custom-checkbox mr-3">
+                                        <label for="q2a" class="cursor-pointer">Horse</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q2b" name="q2" class="custom-checkbox mr-3">
+                                        <label for="q2b" class="cursor-pointer">Pig</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="q2c" name="q2" class="custom-checkbox mr-3" checked>
+                                        <label for="q2c" class="cursor-pointer">Sheep</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex justify-between">
+                        <button class="bg-white border border-gray-200 text-gray-700 px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            Quay lại
+                        </button>
+                        <button class="bg-primary text-white px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap">
+                            Kiểm tra
+                            <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                <i class="ri-check-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Sidebar -->
+            <div>
+                <!-- Learning Tools -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Công cụ học tập</h2>
+                    
+                    <div class="space-y-4">
+                        <button class="w-full bg-gray-50 hover:bg-gray-100 p-4 rounded-lg flex items-center justify-between transition-all">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                    <i class="ri-translate-2-line text-primary"></i>
+                                </div>
+                                <span class="font-medium">Từ điển</span>
+                            </div>
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full bg-gray-50 hover:bg-gray-100 p-4 rounded-lg flex items-center justify-between transition-all">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                    <i class="ri-volume-up-line text-primary"></i>
+                                </div>
+                                <span class="font-medium">Phát âm</span>
+                            </div>
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full bg-gray-50 hover:bg-gray-100 p-4 rounded-lg flex items-center justify-between transition-all">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                    <i class="ri-flashcard-line text-primary"></i>
+                                </div>
+                                <span class="font-medium">Thẻ ghi nhớ</span>
+                            </div>
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full bg-gray-50 hover:bg-gray-100 p-4 rounded-lg flex items-center justify-between transition-all">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                                    <i class="ri-printer-line text-primary"></i>
+                                </div>
+                                <span class="font-medium">In tài liệu</span>
+                            </div>
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Learning Games -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Trò chơi học tập</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="game-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-start mb-3">
+                                <div class="w-12 h-12 rounded overflow-hidden mr-3">
+                                    <img src="https://readdy.ai/api/search-image?query=memory%20card%20game%20icon%2C%20colorful%2C%20cartoon%20style%2C%20educational%2C%20for%20children&width=100&height=100&seq=11&orientation=squarish" alt="Memory Game" class="w-full h-full object-cover object-top">
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Trò chơi ghi nhớ</h3>
+                                    <p class="text-sm text-gray-600">Lật thẻ và tìm cặp từ-hình ảnh</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-primary/10 text-primary font-medium py-2 rounded-button">Chơi ngay</button>
+                        </div>
+                        
+                        <div class="game-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-start mb-3">
+                                <div class="w-12 h-12 rounded overflow-hidden mr-3">
+                                    <img src="https://readdy.ai/api/search-image?query=puzzle%20game%20icon%2C%20colorful%2C%20cartoon%20style%2C%20educational%2C%20for%20children&width=100&height=100&seq=12&orientation=squarish" alt="Puzzle Game" class="w-full h-full object-cover object-top">
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Ghép hình</h3>
+                                    <p class="text-sm text-gray-600">Ghép các mảnh hình thành động vật</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-primary/10 text-primary font-medium py-2 rounded-button">Chơi ngay</button>
+                        </div>
+                        
+                        <div class="game-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-start mb-3">
+                                <div class="w-12 h-12 rounded overflow-hidden mr-3">
+                                    <img src="https://readdy.ai/api/search-image?query=quiz%20game%20icon%2C%20colorful%2C%20cartoon%20style%2C%20educational%2C%20for%20children&width=100&height=100&seq=13&orientation=squarish" alt="Quiz Game" class="w-full h-full object-cover object-top">
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Câu đố vui</h3>
+                                    <p class="text-sm text-gray-600">Trả lời câu hỏi về động vật</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-primary/10 text-primary font-medium py-2 rounded-button">Chơi ngay</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parent Feedback -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6">Phản hồi của phụ huynh</h2>
+                    
+                    <div class="mb-4">
+                        <textarea class="w-full border border-gray-200 rounded p-3 text-gray-700 focus:outline-none focus:border-primary resize-none" rows="4" placeholder="Nhập phản hồi của bạn..."></textarea>
+                    </div>
+                    
+                    <button class="bg-primary text-white px-6 py-2.5 rounded-button font-semibold flex items-center whitespace-nowrap mx-auto">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-send-plane-line"></i>
+                        </div>
+                        Gửi phản hồi
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Next Lessons -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold text-gray-800">Bài học tiếp theo</h2>
+                <button class="text-primary flex items-center text-sm font-medium">
+                    <span>Xem tất cả</span>
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20wild%20animals%2C%20jungle%20animals%2C%20colorful%2C%20educational%2C%20digital%20art%20style%20for%20children&width=300&height=200&seq=14&orientation=landscape" alt="Động vật hoang dã" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">Sắp tới</span>
+                            <span class="text-xs text-gray-500">15 phút</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Động vật hoang dã</h3>
+                        <p class="text-sm text-gray-600 mb-3">Học về các loài động vật sống trong rừng rậm</p>
+                        <button class="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            Mở khóa
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20sea%20animals%2C%20ocean%20creatures%2C%20colorful%2C%20educational%2C%20digital%20art%20style%20for%20children&width=300&height=200&seq=15&orientation=landscape" alt="Động vật biển" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">Sắp tới</span>
+                            <span class="text-xs text-gray-500">15 phút</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Động vật biển</h3>
+                        <p class="text-sm text-gray-600 mb-3">Khám phá các loài sinh vật sống dưới đại dương</p>
+                        <button class="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            Mở khóa
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20pet%20animals%2C%20dogs%2C%20cats%2C%20rabbits%2C%20colorful%2C%20educational%2C%20digital%20art%20style%20for%20children&width=300&height=200&seq=16&orientation=landscape" alt="Thú cưng" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">Sắp tới</span>
+                            <span class="text-xs text-gray-500">15 phút</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Thú cưng</h3>
+                        <p class="text-sm text-gray-600 mb-3">Học về các loài động vật nuôi trong nhà</p>
+                        <button class="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            Mở khóa
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=cute%20cartoon%20insects%2C%20bugs%2C%20butterflies%2C%20colorful%2C%20educational%2C%20digital%20art%20style%20for%20children&width=300&height=200&seq=17&orientation=landscape" alt="Côn trùng" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">Sắp tới</span>
+                            <span class="text-xs text-gray-500">15 phút</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Côn trùng</h3>
+                        <p class="text-sm text-gray-600 mb-3">Tìm hiểu về các loài côn trùng nhỏ bé</p>
+                        <button class="w-full bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium flex items-center justify-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            Mở khóa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 pt-10 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-4 inline-block">logo</a>
+                    <p class="text-gray-600 mb-4">Hệ thống học tiếng Anh tương tác dành cho trẻ em từ 3-10 tuổi, giúp trẻ học tiếng Anh một cách vui vẻ và hiệu quả.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-all">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-all">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-all">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Liên kết nhanh</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Trang chủ</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Khóa học</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Trò chơi</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Thành tích</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Hỗ trợ</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Câu hỏi thường gặp</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-4">Liên hệ</h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">+84 123 456 789</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-600">info@englishforkids.vn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 English For Kids. Tất cả các quyền được bảo lưu.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 text-sm hover:text-primary">Điều khoản sử dụng</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-primary">Chính sách bảo mật</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-primary">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="audioPlayback">
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioButtons = document.querySelectorAll('.audio-button');
+            
+            audioButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Simulate audio playback
+                    const icon = this.querySelector('i');
+                    
+                    // Change icon to indicate playing
+                    icon.classList.remove('ri-volume-up-line');
+                    icon.classList.add('ri-loader-2-line');
+                    
+                    // Simulate audio playing and then revert back
+                    setTimeout(() => {
+                        icon.classList.remove('ri-loader-2-line');
+                        icon.classList.add('ri-volume-up-line');
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+    
+    <script id="videoPlayback">
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoPlayButton = document.querySelector('.aspect-w-16 .w-16');
+            
+            if (videoPlayButton) {
+                videoPlayButton.addEventListener('click', function() {
+                    // Simulate video playback
+                    const playIcon = this.querySelector('i');
+                    
+                    // Change icon to indicate loading
+                    playIcon.classList.remove('ri-play-fill');
+                    playIcon.classList.add('ri-loader-2-line');
+                    
+                    // Simulate video loading
+                    setTimeout(() => {
+                        // This would be where you'd actually start the video
+                        this.parentElement.style.display = 'none';
+                        
+                        // In a real implementation, you would replace the image with a video element
+                        // and start playing it
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+    
+    <script id="exerciseInteraction">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle radio button selections
+            const customCheckboxes = document.querySelectorAll('.custom-checkbox');
+            
+            customCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    // If it's a radio button, uncheck others in the same group
+                    if (this.type === 'radio') {
+                        const name = this.name;
+                        document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+                            radio.checked = false;
+                        });
+                        this.checked = true;
+                    } else {
+                        // For regular checkboxes, just toggle
+                        this.checked = !this.checked;
+                    }
+                });
+            });
+            
+            // Handle the check answers button
+            const checkButton = document.querySelector('button:contains("Kiểm tra")');
+            if (checkButton) {
+                checkButton.addEventListener('click', function() {
+                    // Simulate checking answers
+                    this.innerHTML = '<div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-loader-2-line"></i></div> Đang kiểm tra...';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-check-double-line"></i></div> Đã kiểm tra';
+                        this.classList.remove('bg-primary');
+                        this.classList.add('bg-green-500');
+                        
+                        // Show some feedback (in a real app, you'd check the actual answers)
+                        const feedbackElements = document.querySelectorAll('input[checked]');
+                        feedbackElements.forEach(el => {
+                            const parent = el.closest('.flex');
+                            parent.classList.add('text-green-500');
+                        });
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+    
+    <script id="starRating">
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star-rating label');
+            
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const input = document.getElementById(this.getAttribute('for'));
+                    if (input) {
+                        input.checked = true;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
